@@ -550,9 +550,7 @@ class tx_mksearch_service_engine_ElasticSearch extends Sys25\RnBase\Typo3Wrapper
         try {
             if ($this->isServerAvailable()) {
                 $id = 1;
-                $msg = 'Up and running (Ping time: '.
-                    $this->getIndex()->getClient()->getStatus()->getResponse()->getQueryTime().
-                    ' ms)';
+                $msg = 'Up and running';
             }
         } catch (Exception $exception) {
             $msg = 'Error connecting ElasticSearch: '.$exception->getMessage().'.';
