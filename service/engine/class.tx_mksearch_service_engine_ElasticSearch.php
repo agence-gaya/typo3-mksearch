@@ -334,7 +334,7 @@ class tx_mksearch_service_engine_ElasticSearch extends Sys25\RnBase\Typo3Wrapper
 
         $credentialsForElastica = [];
         foreach ($serverCredentials as $serverCredential) {
-            $credentialsForElastica['servers'][] =
+            $credentialsForElastica['hosts'][] =
                 $this->getElasticaCredentialArrayFromIndexCredentialStringForOneServer(
                     $serverCredential
                 );
@@ -348,14 +348,10 @@ class tx_mksearch_service_engine_ElasticSearch extends Sys25\RnBase\Typo3Wrapper
      */
     private function getElasticaCredentialArrayFromIndexCredentialStringForOneServer(
         $credentialString,
-    ): array {
+    ): string {
         $serverCredential = Sys25\RnBase\Utility\Strings::trimExplode(',', $credentialString);
 
-        return [
-            'host' => $serverCredential[0],
-            'port' => $serverCredential[1],
-            'path' => $serverCredential[2],
-        ];
+        return $serverCredential[0] . ':' . $serverCredential[1];
     }
 
     /**
