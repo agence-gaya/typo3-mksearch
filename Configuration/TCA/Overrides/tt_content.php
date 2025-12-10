@@ -66,7 +66,7 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content'
 // so this type is just like the 100 type in the FE but this type is indexed instead
 // of the standard type (100)
 $aTempConfig = $GLOBALS['TCA']['tt_content']['columns']['header_layout']['config']['items'];
-$aTempConfig[] = ['LLL:EXT:mksearch/Resources/Private/Language/locallang_db.xlf:plugin.mksearch.tt_content.header_layout', '101'];
+$aTempConfig[] = ['label' => 'LLL:EXT:mksearch/Resources/Private/Language/locallang_db.xlf:plugin.mksearch.tt_content.header_layout', 'value' => '101'];
 $GLOBALS['TCA']['tt_content']['columns']['header_layout']['config']['items'] = $aTempConfig;
 
 // Add flexform and plugin

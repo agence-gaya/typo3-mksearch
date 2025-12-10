@@ -63,7 +63,7 @@ class tx_mksearch_util_TCA
         $keys = array_keys($config);
         sort($keys);
         foreach ($keys as $k) {
-            $params['items'][] = [$k, $k];
+            $params['items'][] = ['label' => $k, 'value' => $k];
         }
     }
 
@@ -103,7 +103,7 @@ class tx_mksearch_util_TCA
         // wir sortieren vorher, damit bestehende items nicht mit sortiert werden!
         sort($config);
         foreach ($config as $k) {
-            $params['items'][] = [$k, $k];
+            $params['items'][] = ['label' => $k, 'value' => $k];
         }
     }
 
@@ -180,7 +180,7 @@ class tx_mksearch_util_TCA
             // Sind die RootPages identisch oder ist der Index global,
             // kann der Index verwendet werden.
             if (empty($rootOfIndex['uid'] ?? null) || $rootOfIndex['uid'] == ($rootOfPlugin['uid'] ?? null)) {
-                $params['items'][] = [$index->getTitle(), $index->getUid()];
+                $params['items'][] = ['label' => $index->getTitle(), 'value' => $index->getUid()];
             }
         }
     }
